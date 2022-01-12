@@ -1,3 +1,5 @@
+"""stack based on type is about 1 second faster on push with 10_000_000 operations than class based"""
+
 from typing import Any, NoReturn
 
 
@@ -42,6 +44,6 @@ stack = type('stack', (), {
     "push": _push,  # Add item on top of the stack
     "pop": _pop,  # Return top item and delete it from stack
     "clear": _clear,  # Delete all items from stack
-    "is_empty": lambda self: True if not self.size else False  # Return True if stack is empty
+    "is_empty": lambda self: not self.size  # Return True if stack is empty
 }
              )

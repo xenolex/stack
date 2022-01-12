@@ -2,7 +2,7 @@ from typing import Any, NoReturn, Iterator
 
 
 class Stack:
-    __slots__ = "__dict__", "size"
+    __slots__ = ("size", "__dict__")
 
     def __init__(self):
         self.size = 0
@@ -46,9 +46,4 @@ class Stack:
 
     def is_empty(self) -> bool:
         """Return True if stack is empty"""
-        return True if not self.size else False
-
-
-if __name__ == '__main__':
-    a = Stack()
-    a.push(1)
+        return not self.size
