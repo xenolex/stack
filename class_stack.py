@@ -10,7 +10,7 @@ class Stack:
     def __repr__(self) -> str:
         return f'{list(self.__dict__.values())}' if self.size else '[]'
 
-    def __len__(self):
+    def __len__(self) -> int:
         return self.size
 
     def __iter__(self) -> Iterator:
@@ -20,10 +20,7 @@ class Stack:
 
     def top(self) -> Any:
         """Return top item of the stack"""
-        if self.size:
-            return self.__dict__[f'{self.size - 1}']
-        else:
-            return ''
+        return self.__dict__[f'{self.size - 1}'] if self.size else None
 
     def push(self, item) -> NoReturn:
         """Add item on top of the stack"""
@@ -50,3 +47,8 @@ class Stack:
     def is_empty(self) -> bool:
         """Return True if stack is empty"""
         return True if not self.size else False
+
+
+if __name__ == '__main__':
+    a = Stack()
+    a.push(1)
